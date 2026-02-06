@@ -73,37 +73,16 @@ img {
   padding: 120px 0;
 }
 
-/* additional style for links based on requirements */
-.nav-ul a:focus,
-.nav-ul a:hover {
-  color: #404bbf;
-}
-
-.nav-ul a {
-  position: relative;
-}
-
-.nav-ul a:hover::after {
-  content: '';
-  position: absolute;
-  text-decoration: underline;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #404bbf;
-}
-
-.logo {
-  color: #2e2f42;
-}
-
 /* style for page */
 
 /* navbar */
 .main-header {
   background-color: white;
   border-bottom: 1px solid #e7e9fc;
+  box-shadow:
+    2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .main-header .container {
@@ -119,9 +98,32 @@ img {
 .nav-ul {
   display: flex;
   gap: 40px;
-  transition-property: color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 250ms;
+}
+
+.nav-ul a:focus,
+.nav-ul a:hover {
+  color: #404bbf;
+}
+
+.nav-ul a {
+  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-ul a:hover::after {
+  content: '';
+  position: absolute;
+  color: #404bbf;
+  width: 100%;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
+}
+
+.logo {
+  color: #2e2f42;
 }
 
 .logo-link {
@@ -155,9 +157,7 @@ img {
 
 .address-info .address-link {
   color: #434455;
-  transition-property: color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 250ms;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-info .address-link:hover,
@@ -171,10 +171,13 @@ img {
   color: white;
   padding: 188px 0;
   background-image:
-    linear-gradient(rgba(46, 47, 66, 0.7)), url('../images/hero-bg.jpg');
-  background-repeat: no-repeat;
+    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url('../images/hero-bg.jpg');
+  max-width: 1440px;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
+  margin: 0 auto;
 }
 
 .hero .container {
@@ -204,9 +207,7 @@ img {
   border: none;
   border-radius: 4px;
 
-  transition-property: background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 250ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -278,6 +279,13 @@ img {
   border-radius: 0 0 4px 4px;
 }
 
+.team-ul li:not(.team-social-elem) {
+  box-shadow:
+    1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
 .team-li-header {
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -308,6 +316,22 @@ img {
 .team-social-list {
   display: flex;
   gap: 24px;
+  justify-content: center;
+}
+
+.team-social-elem {
+  width: 40px;
+  height: 40px;
+}
+
+.team-social-link {
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+}
+
+.team-social-elem .svg-icon {
+  fill: #f4f4fd;
 }
 
 .container-team-svg .social-icon:hover,
@@ -354,10 +378,14 @@ img {
 
 .portfolio-ul li {
   width: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-ul li:hover {
-  box-shadow: 0 6px 20px rgba(46, 47, 66, 0.15);
+  box-shadow:
+    0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-container {
@@ -414,9 +442,14 @@ img {
   gap: 16px;
 }
 
-.footer-links-header {
+.footer-links-paragraph {
   color: #ffffff;
   display: flex;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
 }
 
 /* social icons */
@@ -429,9 +462,7 @@ img {
   width: 40px;
   height: 40px;
   padding: 10px;
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-footer .social-icon:hover,
@@ -446,18 +477,21 @@ img {
   overflow: hidden;
 }
 
-.modal-popup {
+.modal-paragraph {
   position: absolute;
+  top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
   color: #f4f4fd;
+  padding: 40px 32px;
   background-color: #4d5ae5;
-  inset: 0;
-
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  width: 100%;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-li-elem:hover .modal-popup {
-  transform: translateY(0);
+.modal-container-wrapper:hover .modal-paragraph {
+  transform: translateY(0%);
 }
